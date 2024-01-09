@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Clase para llevar el control del tablero del juego o de los frames
 class TableroBolos
   def initialize
     @puntuaciones = Array.new(10, 0)
@@ -6,6 +9,7 @@ class TableroBolos
 
   def lanzar(pins)
     @lanzamientos << pins
+    
   end
 
   def calcular_puntuacion

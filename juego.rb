@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
+require_relative 'tablero'
+
+# Clase JuegoBolos para llevar el registro del juego
 class JuegoBolos
   def initialize
     @tablero = TableroBolos.new
@@ -5,6 +10,7 @@ class JuegoBolos
 
   def lanzar(pins)
     @tablero.lanzar(pins)
+    
   end
 
   def calcular_puntuacion
