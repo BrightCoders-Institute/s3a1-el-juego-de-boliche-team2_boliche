@@ -9,7 +9,12 @@ class TableroBolos
 
   def lanzar(pins)
     @lanzamientos << pins
-    
+    if @lanzamientos.count == 2
+      calcular_puntos
+      elsif @lanzamientos.count > 2
+        eliminar_primer_lanzamiento
+        lanzar(@lanzamientos[-1])
+    end
   end
 
   def calcular_puntuacion
