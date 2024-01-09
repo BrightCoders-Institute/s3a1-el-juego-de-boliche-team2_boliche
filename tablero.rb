@@ -7,19 +7,23 @@ class TableroBolos
     @lanzamientos = []
   end
 
-  def lanzar(pins)
-    @lanzamientos << pins
-    if @lanzamientos.count == 2
-      calcular_puntos
-      elsif @lanzamientos.count > 2
-        eliminar_primer_lanzamiento
-        lanzar(@lanzamientos[-1])
-    end
+  def lanzar(pinos)
+    @lanzamientos << pinos
+    # if @lanzamientos.count == 2
+    #   calcular_puntuacion
+    #   elsif @lanzamientos.count > 2
+    #     eliminar_primer_lanzamiento
+    #     lanzar(@lanzamientos[-1])
+    # end
   end
+
+  
+  
 
   def calcular_puntuacion
     # Implementa lógica para calcular puntuación con bonificaciones por strikes y spares
     # ...
+    end
 
     @puntuaciones.reduce(:+)
   end
