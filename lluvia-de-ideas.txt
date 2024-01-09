@@ -1,0 +1,7 @@
+-El tablero tenga 10 frames, con dos intentos c/u
+-En cada frame se pueden hacer dos tiros
+-Ocupamos obtener la puntuacion de cada frame 
+-Obtener los puntajes adicionales
+-En el décimo frame, a un jugador que realiza un spare o 
+strike se le permite lanzar bolas adicionales para completar el frame. 
+Sin embargo, no se pueden lanzar más de tres bolas en el décimo frame.
