@@ -15,16 +15,11 @@ class TableroBolos
     #     eliminar_primer_lanzamiento
     #     lanzar(@lanzamientos[-1])
     # end
-  end
-
-  
-  
+  end  
 
   def calcular_puntuacion
     # Implementa lógica para calcular puntuación con bonificaciones por strikes y spares
     # ...
-    end
-
     @puntuaciones.reduce(:+)
   end
 
@@ -35,4 +30,8 @@ class TableroBolos
 
   private
   # Métodos privados para la lógica interna del cálculo de puntuación
+
+  def spare(indice_array)
+    @lanzamientos[indice_lanzamiento] + @lanzamientos[indice_lanzamiento + 1] == 10
+  end
 end
