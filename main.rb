@@ -6,7 +6,7 @@ require_relative 'tablero'
 tablero = TableroBolos.new
 
 # Simulamos una partida con algunos lanzamientos
-lanzamientos = [10, 3, 9, 0, 10, 0, 8, 8, 2, 0, 6, 10, 10, 10, 8, 1]
+lanzamientos = [7, 3, 9, 0, 10, 0, 8, 8, 2, 0, 6, 10, 10, 10, 8, 1]
 
 lanzamientos.each { |pinos| tablero.lanzar(pinos) }
 
