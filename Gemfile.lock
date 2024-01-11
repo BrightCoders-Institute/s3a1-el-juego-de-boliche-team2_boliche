@@ -73,9 +73,7 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
-  flog
   minitest (~> 5.8, >= 5.8.4)
-  reek
   rubocop
   rubycritic
 
