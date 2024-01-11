@@ -5,7 +5,6 @@ class TableroBolos
   def initialize
     @puntuaciones = Array.new(10, 0)
     @lanzamientos = []
-    @indice_lanzamiento = 0
   end
 
   def lanzar(pinos)
@@ -16,7 +15,8 @@ class TableroBolos
     indice_lanzamiento = 0
     10.times do |cuadro_de_juego|
       if strike?(indice_lanzamiento)
-        calcular_puntuacion_modulo1(cuadro_de_juego,indice_lanzamiento)
+        @puntuaciones[cuadro_de_juego] = 10 + strike_bonus(indice_lanzamiento)
+        indice_lanzamiento += 1
       elsif spare?(indice_lanzamiento)
         @puntuaciones[cuadro_de_juego] = 10 + spare_bonus(indice_lanzamiento)
         indice_lanzamiento += 2
@@ -25,20 +25,22 @@ class TableroBolos
         indice_lanzamiento += 2
       end
     end
-  end
-  
-  def calcular_puntuacion_modulo1(cuadro_de_juego,indice_lanzamiento)
-    @puntuaciones[cuadro_de_juego] = 10 + strike_bonus(indice_lanzamiento)
-    indice_lanzamiento += 1
+    @puntuaciones.reduce(:+)
   end
 
   def mostrar_tablero_grafico
-    # Implementa la representación gráfica del tablero
-    # ...
+    puts '  Frame   |   Puntuación'
+    puts '------------------------'
+    suma_acumulada = 0
+    @puntuaciones.each_with_index do |puntuacion, frame|
+      frame_num = frame == 9 ? '10' : (frame + 1).to_s # Ajuste para el último frame
+      suma_acumulada += puntuacion
+      puts "  #{frame_num.rjust(6)}   |   #{suma_acumulada}"
+    end
   end
 
   private
-
+  
   # Métodos privados para la lógica interna del cálculo de puntuación
 
   def strike?(indice_lanzamiento)
